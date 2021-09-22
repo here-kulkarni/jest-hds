@@ -30,9 +30,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test1": "jest --coverage",
+    "test1": "jest --coverage --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen"
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --verbose=false"
   },
   "jest": {
     "transform": {
@@ -41,12 +41,9 @@
     "transformIgnorePatterns": [
       "!<rootDir>/node_modules/@here/hds-react-components"
     ],
-    "testEnvironment":"jest-environment-jsdom-sixteen",
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "./tsconfig.json"
-      }
-    }
+    "testMatch": [
+      "<rootDir>/src/*.test.{js,jsx,ts,tsx}"
+    ]
   },
 
   "eslintConfig": {
