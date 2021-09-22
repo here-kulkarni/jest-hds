@@ -1,16 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import * as React from 'react';
+
 import './App.css';
+import "@here/hds-base/src/hds-styles.scss";
+import { HDSButton } from "@here/hds-react-components";
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
+      <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
@@ -18,6 +18,16 @@ function App() {
         >
           Learn React
         </a>
+      <HDSButton
+                size="small"
+                type="button"
+                variant="primary"
+                width="150px"
+                title="pk"
+                onClick={() => console.log('i am')}
+              >
+              PK
+              </HDSButton>
       </header>
     </div>
   );

@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+  <div data-theme="hds-light-theme">
     <App />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
