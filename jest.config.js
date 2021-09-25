@@ -1,6 +1,6 @@
 module.exports = {
-  preset: "ts-jest/presets/js-with-ts",
-  // roots: ["<rootDir>/src/test"],
+  // this is required as a preset
+   preset: "ts-jest/presets/js-with-ts",
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
   collectCoverage: true,
   coverageReporters: ["lcov"],
@@ -10,9 +10,6 @@ module.exports = {
       tsconfig: "./tsconfig.json",
     },
   },
-  coverageDirectory: "coverage",
-  testPathIgnorePatterns: ["/node_modules/", "/cypress/"],
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   coverageThreshold: {
     global: {
       branches: 0,
@@ -21,12 +18,14 @@ module.exports = {
       statements: 0,
     },
   },
+  coverageDirectory: "coverage",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  testPathIgnorePatterns: ["/node_modules/", "/cypress/"],
   testMatch: [
-    "<rootDir>/src/*.{js,jsx,ts,tsx}",
     "<rootDir>/src/*.{spec,test}.{js,jsx,ts,tsx}",
   ],
   transform: {
-    "^.+\\.(js|jsx|ts)$": "babel-jest",
+    "^.+\\.(js|jsx|ts)$": "babel-jest",// ts-jest wont work here, babel-jest:^26.6.0 works with jest:26.6.0 well, for demo have manually added babel-jest in react-script its already included,no need to add externally
     "^.+\\.(css|scss)$": "identity-obj-proxy",
   },
   moduleNameMapper: {
@@ -35,7 +34,6 @@ module.exports = {
   },
   transformIgnorePatterns: [
     "^.+\\.module\\.(css|sass|scss)$",
-    "/node_modules/(?!lit-html).+\\.js",
     "!<rootDir>/node_modules/@here/hds-react-components"
   ],
   verbose: false
